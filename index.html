@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Justin Huchet – Systèmes, réseau &amp; cybersécurité</title>
+  <meta name="description" content="Portfolio de Justin Huchet, administrateur systèmes et réseau en alternance, orienté cybersécurité : SIEM, homelab, labs réseau, pentest Active Directory.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+  <!-- hreflang en : décommenter quand en/index.html existera
+  <link rel="alternate" hreflang="fr" href="https://nba-jurgarl.github.io/">
+  <link rel="alternate" hreflang="en" href="https://nba-jurgarl.github.io/en/">
+  -->
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#accueil">~/nba-jurgarl</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="en/" hreflang="en" lang="en">EN</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- ===== ACCUEIL / À PROPOS ===== -->
+    <section id="accueil" class="hero" aria-labelledby="titre-accueil">
+      <div class="wrap">
+        <p class="prompt">$ whoami</p>
+        <h1 id="titre-accueil">Justin Huchet</h1>
+        <p class="lead">Administrateur systèmes &amp; réseau en alternance <span aria-hidden="true">→</span> cybersécurité</p>
+        <p>
+          En mastère RNCP niveau 7 « Ingénieur systèmes, réseaux et cybersécurité » (fin en 2027),
+          je vise un poste en cybersécurité. Je m'intéresse en particulier au pentest Active Directory,
+          au hardening et à la détection (SOC/SIEM).
+        </p>
+        <p class="meta">Basé à Lyon · ouvert à la France et au Canada</p>
+      </div>
+    </section>
+
+    <!-- ===== COMPÉTENCES ===== -->
+    <section id="competences" aria-labelledby="titre-competences">
+      <div class="wrap">
+        <h2 id="titre-competences">Compétences</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Systèmes &amp; virtualisation</h3>
+            <ul class="tags">
+              <li>vSphere / vSAN</li><li>Proxmox VE</li><li>Conteneurs LXC</li><li>VMware</li>
+              <li>VirtualBox</li><li>Debian</li><li>ZFS</li><li>Proxmox Backup Server</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Réseau</h3>
+            <ul class="tags">
+              <li>VLAN &amp; ACL</li><li>OSPF (FRR)</li><li>Segmentation LAN/WAN/DMZ</li>
+              <li>Network namespaces</li><li>NAT / DNAT</li><li>VPN WireGuard</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Sécurité &amp; détection</h3>
+            <ul class="tags">
+              <li>SIEM Wazuh</li><li>Pare-feu iptables (default-drop, stateful)</li>
+              <li>Lab de pentest isolé</li><li>Pi-hole</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Outillage</h3>
+            <ul class="tags">
+              <li>RMM NinjaOne</li><li>Kali Linux</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJETS : une <article class="card"> par projet ===== -->
+    <section id="projets" aria-labelledby="titre-projets">
+      <div class="wrap">
+        <h2 id="titre-projets">Projets</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Déploiement d'un SIEM Wazuh en entreprise</h3>
+            <p>
+              Mise en place d'un SIEM Wazuh pour environ 200 postes répartis sur 4 sites,
+              afin de faire remonter les vulnérabilités et de trier les alertes.
+            </p>
+            <ul>
+              <li>Agents distants connectés au serveur via le WAN.</li>
+              <li>Déploiement des agents par le RMM NinjaOne.</li>
+              <li>Serveur hébergé en machine virtuelle sur vSphere/vSAN.</li>
+            </ul>
+            <ul class="tags"><li>Wazuh</li><li>NinjaOne</li><li>vSphere/vSAN</li></ul>
+          </article>
+
+          <article class="card">
+            <h3>Homelab Proxmox</h3>
+            <p>Infrastructure personnelle pour héberger des services et s'entraîner en sécurité offensive.</p>
+            <ul>
+              <li>NAS sur ZFS, conteneurs LXC, Pi-hole, sites web.</li>
+              <li>Lab de pentest isolé sur un bridge sans route vers le LAN : DC Windows, postes clients, Kali, machines vulnérables.</li>
+              <li>Accès distant uniquement par VPN WireGuard.</li>
+              <li>Sauvegardes avec Proxmox Backup Server.</li>
+            </ul>
+            <ul class="tags"><li>Proxmox</li><li>ZFS</li><li>LXC</li><li>WireGuard</li><li>PBS</li></ul>
+          </article>
+
+          <article class="card">
+            <h3>Labs réseau &amp; sécurité sous Debian</h3>
+            <ul>
+              <li>VLAN et ACL.</li>
+              <li>Routage dynamique OSPF avec FRR.</li>
+              <li>Pare-feu iptables : politique default-drop, règles stateful, NAT/MASQUERADE,
+                DNAT vers une DMZ avec protection contre le contournement, journalisation limitée en débit.</li>
+              <li>Segmentation LAN/WAN/DMZ avec des network namespaces.</li>
+            </ul>
+            <ul class="tags"><li>Debian</li><li>FRR</li><li>iptables</li><li>netns</li></ul>
+          </article>
+
+          <article class="card">
+            <h3>Environnements virtualisés</h3>
+            <p>Administration et utilisation de plusieurs hyperviseurs, en entreprise et en lab.</p>
+            <ul class="tags"><li>vSphere/vSAN</li><li>Proxmox</li><li>VirtualBox</li><li>VMware</li></ul>
+          </article>
+
+          <article class="card">
+            <h3>Pentest Active Directory <span class="badge badge-now">En cours</span></h3>
+            <p>Montée en compétences sur l'attaque et la défense d'Active Directory.</p>
+            <ul>
+              <li><span class="badge badge-now">En cours</span> Entraînement sur GOAD et HackTheBox.</li>
+              <li><span class="badge badge-goal">Objectif</span> Certification CRTP, OSCP ou PNPT (non obtenue).</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PARCOURS ===== -->
+    <section id="parcours" aria-labelledby="titre-parcours">
+      <div class="wrap">
+        <h2 id="titre-parcours">Parcours</h2>
+        <ol class="timeline">
+          <li>
+            <p class="when">Fin en 2027</p>
+            <h3>Mastère ISRC « Ingénieur systèmes, réseaux et cybersécurité »</h3>
+            <p>Titre RNCP niveau 7 · ICOF</p>
+          </li>
+          <li>
+            <h3>Administrateur systèmes &amp; réseau (alternance)</h3>
+            <p>Groupe Lagrange</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" aria-labelledby="titre-contact">
+      <div class="wrap">
+        <h2 id="titre-contact">Contact</h2>
+        <ul class="links">
+          <li><a href="https://github.com/NBA-JURGARL" rel="noopener noreferrer">GitHub</a></li>
+          <!-- TODO : remplacer par ton URL LinkedIn puis décommenter
+          <li><a href="https://www.linkedin.com/in/TODO" rel="noopener noreferrer">LinkedIn</a></li>
+          -->
+          <li>LinkedIn : TODO</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Site statique, sans traceur ni ressource externe.</p>
+    </div>
+  </footer>
+</body>
+</html>
