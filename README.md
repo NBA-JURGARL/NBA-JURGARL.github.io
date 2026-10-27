@@ -53,7 +53,4 @@ GitHub Pages republie le site en une ou deux minutes.
 
 ## TODO restants
 
-Cherche `TODO` dans `index.html` :
-- l'URL LinkedIn (bloc commenté dans Contact).
-
 Pour ajouter les dates plus tard, utilise une ligne `<p class="when">…</p>` au-dessus du `<h3>` de chaque étape du Parcours.
