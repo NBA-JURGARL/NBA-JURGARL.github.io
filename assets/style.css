@@ -9,18 +9,18 @@
 }
 
 :root {
-  --bg: #0b0f14;
-  --surface: #111823;
-  --surface-2: #0e141c;
-  --raised: #16202d;
-  --border: #233040;
-  --text: #e6edf3;
-  --muted: #9aa7b4;
-  --accent: #58a6ff;   /* bleu blue-team */
-  --accent-ink: #06121f;
-  --ok: #3fb950;
-  --warn: #d29922;
-  --crit: #f85149;
+  --bg: #1a2535;
+  --surface: #233247;
+  --surface-2: #1f2d40;
+  --raised: #2c3e57;
+  --border: #3b506c;
+  --text: #f2f6fa;
+  --muted: #bcc7d3;
+  --accent: #6cb6ff;   /* bleu blue-team */
+  --accent-ink: #071526;
+  --ok: #56d364;
+  --warn: #e3b341;
+  --crit: #ff7b72;
   --sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
   --margin: clamp(16px, 4vw, 48px);
@@ -80,7 +80,7 @@ body::after {
 /* Barre du haut */
 .site-header {
   position: sticky; top: 0; z-index: 5;
-  background: rgba(11, 15, 20, .94); border-bottom: 1px solid var(--border);
+  background: rgba(26, 37, 53, .95); border-bottom: 1px solid var(--border);
 }
 .header-inner {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
@@ -124,7 +124,29 @@ section { padding: clamp(4rem, 9vw, 7.5rem) 0 0; scroll-margin-top: 6rem; }
 .lines [data-line] { display: block; }
 .lead { font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.35; font-weight: 500; margin: 0 0 1rem; max-width: 34rem; }
 .lead strong { color: var(--accent); font-weight: 600; }
-.hero-copy > p:not(.lead) { max-width: 36rem; margin: 0; }
+.hero-copy > p:not(.lead):not(.target) { max-width: 36rem; margin: 0; }
+.target {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .75rem;
+  margin: 0 0 1.25rem; padding: .7rem 1rem; max-width: 36rem;
+  background: var(--surface); border-radius: 4px; box-shadow: inset 3px 0 0 var(--ok);
+  font-weight: 600; font-size: 1.1rem;
+}
+.target-label { font: 600 .8rem var(--mono); color: var(--ok); }
+
+/* Indicateur de défilement sur le côté (rempli par main.js, masqué sans script) */
+.progress { display: none; }
+.js .progress {
+  position: fixed; right: clamp(8px, 1.5vw, 24px); top: 50%; transform: translateY(-50%); z-index: 4;
+  display: flex; flex-direction: column; align-items: center; gap: .6rem; pointer-events: none;
+}
+.progress-track { width: 4px; height: 38vh; background: var(--raised); border-radius: 2px; overflow: clip; }
+.progress-fill { width: 100%; height: 100%; background: var(--accent); transform-origin: top; transform: scaleY(0); }
+.progress-val { font: 600 .8rem var(--mono); color: var(--text); background: var(--surface); padding: .15rem .4rem; border-radius: 3px; font-variant-numeric: tabular-nums; min-width: 3.4em; text-align: center; }
+@media (max-width: 56rem) {
+  .js .progress { right: 4px; }
+  .progress-track { width: 3px; height: 30vh; }
+  .progress-val { display: none; }
+}
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
 
 .btn {
@@ -149,7 +171,8 @@ section { padding: clamp(4rem, 9vw, 7.5rem) 0 0; scroll-margin-top: 6rem; }
 .feed .live { color: var(--ok); }
 
 /* Indicateurs */
-.kpis { display: grid; gap: 1px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(3rem, 7vw, 5rem); background: var(--border); border-radius: 6px; overflow: clip; }
+.kpis { display: grid; gap: 4px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(3rem, 7vw, 5rem); }
+.kpi { border-radius: 4px; }
 @media (min-width: 56rem) { .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .kpi { background: var(--surface); padding: 1.25rem 1.25rem 1.4rem; margin: 0; }
 .kpi-val { display: block; font: 700 clamp(2.5rem, 5vw, 3.75rem)/1 var(--mono); color: var(--accent); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
