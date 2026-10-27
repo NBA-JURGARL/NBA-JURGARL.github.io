@@ -1,12 +1,15 @@
-/* Couleurs : modifier ici pour changer tout le thème */
+/* Thème « SOC dashboard » : couleurs à modifier ici */
 :root {
-  --bg: #0d1117;
-  --surface: #161b22;
-  --border: #30363d;
+  --bg: #0b0f14;
+  --surface: #111823;
+  --surface-2: #0e141c;
+  --border: #233040;
   --text: #e6edf3;
-  --muted: #9da7b3;
-  --accent: #3fb950;
-  --accent-2: #d29922;
+  --muted: #9aa7b4;
+  --accent: #58a6ff;   /* bleu blue-team */
+  --ok: #3fb950;
+  --warn: #d29922;
+  --crit: #f85149;
   --mono: ui-monospace, "SFMono-Regular", "DejaVu Sans Mono", Menlo, Consolas, monospace;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
   color-scheme: dark;
@@ -16,16 +19,21 @@
 
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--text);
   font: 1rem/1.6 var(--sans);
+  background-color: var(--bg);
+  /* quadrillage discret façon console */
+  background-image:
+    linear-gradient(rgba(88, 166, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 166, 255, .04) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-.wrap { max-width: 64rem; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 16px; }
 
 a { color: var(--accent); }
 a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--warn); outline-offset: 2px; }
 
 .skip {
   position: absolute; left: -999px; top: 0;
@@ -33,75 +41,124 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .skip:focus { left: 16px; }
 
-/* En-tête */
+/* Barre du haut */
 .site-header {
   position: sticky; top: 0; z-index: 5;
-  background: var(--bg); border-bottom: 1px solid var(--border);
+  background: rgba(11, 15, 20, .96); border-bottom: 1px solid var(--border);
 }
 .header-inner {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: .5rem 1.5rem; padding-top: .75rem; padding-bottom: .75rem;
+  gap: .5rem 1.5rem; padding-top: .6rem; padding-bottom: .6rem;
 }
-.brand { font-family: var(--mono); font-weight: 700; text-decoration: none; }
+.brand { font-family: var(--mono); font-weight: 700; text-decoration: none; letter-spacing: .05em; }
 nav ul { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; list-style: none; margin: 0; padding: 0; }
-nav a { color: var(--text); text-decoration: none; }
+nav a { color: var(--text); text-decoration: none; font: .9rem var(--mono); text-transform: uppercase; letter-spacing: .04em; }
 nav a:hover { color: var(--accent); }
+.lang { border: 1px solid var(--border); border-radius: 4px; padding: .1rem .5rem; }
 
-/* Sections */
-section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 4rem; }
-h1, h2, h3 { line-height: 1.25; }
-h1 { font-size: clamp(2rem, 6vw, 3rem); margin: .25rem 0 .5rem; }
-h2 { font-family: var(--mono); color: var(--accent); font-size: 1.5rem; margin-top: 0; }
-h2::before { content: "# "; color: var(--muted); }
-h3 { font-size: 1.1rem; margin: 0 0 .5rem; }
-
-.prompt, .meta, .when { font-family: var(--mono); color: var(--muted); margin: 0; }
-.lead { font-size: 1.25rem; color: var(--accent); font-family: var(--mono); }
-.hero p { max-width: 44rem; }
-
-/* Cartes */
-.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
-.card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-  padding: 1.25rem;
+.statusbar {
+  display: flex; flex-wrap: wrap; gap: .25rem 1.5rem;
+  font: .8rem/1.4 var(--mono); color: var(--muted);
+  padding-top: .45rem; padding-bottom: .45rem;
 }
-.card ul:not(.tags) { padding-left: 1.2rem; }
+.statusbar-row { border-bottom: 1px solid var(--border); background: var(--surface-2); }
+.dot { display: inline-block; width: .55rem; height: .55rem; border-radius: 50%; background: var(--ok); margin-right: .4rem; box-shadow: 0 0 6px var(--ok); }
+
+/* Sections = panneaux */
+section { padding: 2.5rem 0; scroll-margin-top: 4rem; }
+h1, h2, h3, h4 { line-height: 1.25; }
+h1 { font-size: clamp(2rem, 6vw, 2.75rem); margin: .25rem 0 .5rem; }
+h2 {
+  display: flex; align-items: baseline; gap: .75rem;
+  font: 700 1rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .08em;
+  color: var(--text); margin: 0 0 1rem; padding: .5rem .75rem;
+  background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px;
+}
+h2 .h-id { color: var(--accent); }
+h3 { font-size: 1.05rem; margin: 0; }
+h4 { font-size: 1rem; margin: .15rem 0; }
+
+.prompt, .meta { font-family: var(--mono); color: var(--muted); margin: 0; }
+.lead { font: 1.1rem/1.5 var(--mono); color: var(--accent); }
+
+/* Accueil : profil + indicateurs */
+.dash { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: stretch; }
+.kpis { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.kpi {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+  padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;
+}
+.kpi-label { font: .75rem/1.3 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 0; }
+.kpi-val { font: 700 2.25rem/1.1 var(--mono); color: var(--accent); margin: .5rem 0 0; }
+.kpi-val.ok { color: var(--ok); }
+.kpi-val.warn { color: var(--warn); }
+
+/* Panneaux / cartes */
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+.card-head {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem;
+  margin: -1rem -1.25rem 1rem; padding: .6rem 1.25rem;
+  border-bottom: 1px solid var(--border); background: var(--surface-2); border-radius: 6px 6px 0 0;
+}
+.card ul:not(.tags):not(.plain) { padding-left: 1.2rem; }
+.card.offense { border-top: 2px solid var(--crit); }
+.card.defense { border-top: 2px solid var(--accent); }
 
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: .75rem 0 0; }
 .tags li {
-  font: .8rem/1.4 var(--mono); color: var(--text);
-  border: 1px solid var(--border); border-radius: 4px; padding: .15rem .5rem;
+  font: .78rem/1.4 var(--mono); color: var(--text);
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 3px; padding: .1rem .45rem;
 }
 
+/* Statuts */
 .badge {
-  display: inline-block; font: 600 .75rem/1.4 var(--mono);
-  border: 1px solid currentColor; border-radius: 4px; padding: 0 .4rem; vertical-align: middle;
+  display: inline-block; font: 700 .7rem/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em;
+  border: 1px solid currentColor; border-radius: 3px; padding: 0 .4rem; vertical-align: middle; white-space: nowrap;
 }
-.badge-now { color: var(--accent); }
-.badge-goal { color: var(--accent-2); }
+.badge-ok { color: var(--ok); }
+.badge-info { color: var(--accent); }
+.badge-now, .badge-goal { color: var(--warn); }
+.badge-goal { border-style: dashed; }
+.badge-crit { color: var(--crit); }
 
-/* Parcours */
-.timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
-.timeline li { padding: 0 0 1.5rem 1.25rem; }
-.timeline li:last-child { padding-bottom: 0; }
+/* Journal d'événements (parcours) */
+.sub { font: .8rem var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 .75rem; }
+.log { list-style: none; padding: 0; margin: 0; }
+.log > li {
+  display: grid; grid-template-columns: 9.5rem 1fr; gap: .25rem 1rem;
+  padding: .85rem 0; border-top: 1px dashed var(--border);
+}
+.log > li:first-child { border-top: 0; padding-top: 0; }
+.log time { font: .8rem/1.6 var(--mono); color: var(--accent); }
+.log p { margin: 0; color: var(--muted); }
+.log ul { padding-left: 1.2rem; margin: .4rem 0 0; color: var(--muted); font-size: .92rem; }
+@media (max-width: 34rem) { .log > li { grid-template-columns: 1fr; } }
 
-.grid.two { grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 2rem; }
-.sub { font-family: var(--mono); color: var(--muted); margin-bottom: 1rem; }
-h4 { font-size: 1rem; margin: .25rem 0; }
-.timeline ul { padding-left: 1.2rem; color: var(--muted); font-size: .95rem; }
-.timeline li li { padding: 0; }
-.plain, .plain-list, .card ul.plain { list-style: none; padding: 0; margin: 0; }
-.plain-list { padding: 1.25rem; }
-.plain-list li + li { margin-top: .4rem; }
+/* Certifications façon tableau */
+.table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.table th, .table td { text-align: left; padding: .55rem .75rem; border-bottom: 1px solid var(--border); }
+.table th { font: .75rem var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; background: var(--surface-2); }
+.table tr:last-child td { border-bottom: 0; }
+.card.flush { padding: 0; overflow-x: auto; }
+
+.plain { list-style: none; padding: 0; margin: 0; }
+.plain li + li { margin-top: .3rem; }
 
 .btn {
-  display: inline-block; margin-top: .5rem; padding: .55rem 1rem;
-  border: 1px solid var(--accent); border-radius: 6px;
-  font-family: var(--mono); text-decoration: none;
+  display: inline-block; margin: .5rem .5rem 0 0; padding: .5rem 1rem;
+  border: 1px solid var(--accent); border-radius: 4px; background: rgba(88, 166, 255, .08);
+  font: .9rem var(--mono); text-decoration: none;
 }
-.btn:hover { background: var(--surface); }
-.lang { border: 1px solid var(--border); border-radius: 4px; padding: .1rem .5rem; font-family: var(--mono); }
+.btn:hover { background: rgba(88, 166, 255, .18); }
 
-.links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+.links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-family: var(--mono); }
 
-.site-footer { padding: 2rem 0; color: var(--muted); font-size: .9rem; }
+.site-footer { padding: 1.5rem 0 2rem; color: var(--muted); font: .8rem var(--mono); border-top: 1px solid var(--border); }
+
+/* Mobile : en-tête non collant, il prendrait trop de hauteur */
+@media (max-width: 40rem) { .site-header { position: static; } }

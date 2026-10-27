@@ -17,7 +17,7 @@
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#home">~/nba-jurgarl</a>
+      <a class="brand" href="#home">SOC://justin-huchet</a>
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="#skills">Skills</a></li>
@@ -29,32 +29,49 @@
         </ul>
       </nav>
     </div>
+    <div class="statusbar-row">
+      <p class="wrap statusbar">
+        <span><span class="dot" aria-hidden="true"></span>Open to opportunities</span>
+        <span>Lyon, FR</span>
+        <span>Mobility: France · Canada</span>
+        <span>Focus: SOC/SIEM · hardening · AD pentesting</span>
+      </p>
+    </div>
   </header>
 
   <main id="content">
     <!-- ===== HOME / ABOUT ===== -->
-    <section id="home" class="hero" aria-labelledby="title-home">
-      <div class="wrap">
-        <p class="prompt">$ whoami</p>
-        <h1 id="title-home">Justin Huchet</h1>
-        <p class="lead">Work-study systems &amp; network administrator <span aria-hidden="true">→</span> cybersecurity</p>
-        <p>
-          Currently in a Master's-level programme (French RNCP level 7, “Systems, Network &amp; Cybersecurity Engineer”,
-          ending in 2027), I am aiming for a cybersecurity role. I am especially interested in Active Directory
-          pentesting, hardening and detection (SOC/SIEM).
-        </p>
-        <p class="meta">Based in Lyon, France · open to opportunities in France and Canada</p>
-        <p><a class="btn" href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>Download my résumé (PDF)</a></p>
+    <section id="home" aria-labelledby="title-home">
+      <div class="wrap dash">
+        <div class="card">
+          <div class="card-head"><span class="sub">Analyst profile</span><span class="badge badge-ok">Active</span></div>
+          <p class="prompt">$ whoami</p>
+          <h1 id="title-home">Justin Huchet</h1>
+          <p class="lead">Work-study systems &amp; network administrator <span aria-hidden="true">→</span> cybersecurity</p>
+          <p>
+            Currently in a Master's-level programme (French RNCP level 7, “Systems, Network &amp; Cybersecurity Engineer”,
+            ending in 2027), I am aiming for a cybersecurity role. I am especially interested in Active Directory
+            pentesting, hardening and detection (SOC/SIEM).
+          </p>
+          <p><a class="btn" href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>↓ Download my résumé (PDF)</a></p>
+        </div>
+        <!-- Key figures: real numbers only -->
+        <div class="kpis" aria-label="Key figures">
+          <div class="kpi"><p class="kpi-label">Endpoints monitored (Wazuh)</p><p class="kpi-val">~200</p></div>
+          <div class="kpi"><p class="kpi-label">Sites covered</p><p class="kpi-val">4</p></div>
+          <div class="kpi"><p class="kpi-label">Certifications earned</p><p class="kpi-val ok">5</p></div>
+          <div class="kpi"><p class="kpi-label">Master's (RNCP 7) ends</p><p class="kpi-val warn">2027</p></div>
+        </div>
       </div>
     </section>
 
     <!-- ===== SKILLS ===== -->
     <section id="skills" aria-labelledby="title-skills">
       <div class="wrap">
-        <h2 id="title-skills">Skills</h2>
+        <h2 id="title-skills"><span class="h-id" aria-hidden="true">01</span>Skills</h2>
         <div class="grid">
           <div class="card">
-            <h3>Systems &amp; virtualization</h3>
+            <div class="card-head"><h3>Systems &amp; virtualization</h3></div>
             <ul class="tags">
               <li>Windows</li><li>Debian</li><li>Ubuntu</li><li>Active Directory</li><li>Office 365</li>
               <li>vSphere / vSAN</li><li>Proxmox VE</li><li>LXC containers</li><li>Docker</li>
@@ -62,15 +79,15 @@
             </ul>
           </div>
           <div class="card">
-            <h3>Networking</h3>
+            <div class="card-head"><h3>Networking</h3></div>
             <ul class="tags">
               <li>LAN / WAN</li><li>VLANs &amp; ACLs</li><li>OSPF (FRR)</li><li>Cisco</li><li>Wi-Fi</li>
               <li>LAN/WAN/DMZ segmentation</li><li>Network namespaces</li><li>NAT / DNAT</li>
               <li>WireGuard VPN</li><li>IPsec VPN</li>
             </ul>
           </div>
-          <div class="card">
-            <h3>Security &amp; detection</h3>
+          <div class="card defense">
+            <div class="card-head"><h3>Security &amp; detection</h3></div>
             <ul class="tags">
               <li>Wazuh SIEM</li><li>iptables firewall (default-drop, stateful)</li>
               <li>Fortinet</li><li>Sophos</li><li>Isolated pentest lab</li><li>Pi-hole</li>
@@ -78,18 +95,18 @@
             </ul>
           </div>
           <div class="card">
-            <h3>Tooling &amp; backup</h3>
+            <div class="card-head"><h3>Tooling &amp; backup</h3></div>
             <ul class="tags">
               <li>NinjaOne RMM</li><li>Veeam</li><li>Veritas System Recovery</li>
               <li>Proxmox Backup Server</li><li>Kali Linux</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Scripting</h3>
+            <div class="card-head"><h3>Scripting</h3></div>
             <ul class="tags"><li>PowerShell</li><li>Python</li><li>C</li></ul>
           </div>
           <div class="card">
-            <h3>Languages</h3>
+            <div class="card-head"><h3>Languages</h3></div>
             <ul class="plain">
               <li>French: native</li>
               <li>Polish: native</li>
@@ -103,10 +120,10 @@
     <!-- ===== PROJECTS: one <article class="card"> per project ===== -->
     <section id="projects" aria-labelledby="title-projects">
       <div class="wrap">
-        <h2 id="title-projects">Projects</h2>
+        <h2 id="title-projects"><span class="h-id" aria-hidden="true">02</span>Projects</h2>
         <div class="grid">
-          <article class="card">
-            <h3>Enterprise Wazuh SIEM deployment</h3>
+          <article class="card defense">
+            <div class="card-head"><h3>Enterprise Wazuh SIEM deployment</h3><span class="badge badge-ok">Prod</span></div>
             <p>
               Deployed a Wazuh SIEM covering about 200 endpoints across 4 sites,
               to surface vulnerabilities and triage alerts.
@@ -121,7 +138,7 @@
           </article>
 
           <article class="card">
-            <h3>Proxmox homelab</h3>
+            <div class="card-head"><h3>Proxmox homelab</h3><span class="badge badge-info">Lab</span></div>
             <p>Personal infrastructure to host services and practise offensive security.</p>
             <ul>
               <li>ZFS-based NAS, LXC containers, Pi-hole, websites.</li>
@@ -132,8 +149,8 @@
             <ul class="tags"><li>Proxmox</li><li>ZFS</li><li>LXC</li><li>WireGuard</li><li>PBS</li></ul>
           </article>
 
-          <article class="card">
-            <h3>Network &amp; security labs on Debian</h3>
+          <article class="card defense">
+            <div class="card-head"><h3>Network &amp; security labs on Debian</h3><span class="badge badge-info">Lab</span></div>
             <ul>
               <li>VLANs and ACLs.</li>
               <li>Dynamic routing with OSPF using FRR.</li>
@@ -145,13 +162,13 @@
           </article>
 
           <article class="card">
-            <h3>Virtualized environments</h3>
+            <div class="card-head"><h3>Virtualized environments</h3><span class="badge badge-info">Prod + lab</span></div>
             <p>Administration and use of several hypervisors, at work and in the lab.</p>
             <ul class="tags"><li>vSphere/vSAN</li><li>Proxmox</li><li>VirtualBox</li><li>VMware</li></ul>
           </article>
 
-          <article class="card">
-            <h3>Active Directory pentesting <span class="badge badge-now">In progress</span></h3>
+          <article class="card offense">
+            <div class="card-head"><h3>Active Directory pentesting</h3><span class="badge badge-now">In progress</span></div>
             <p>Building skills in attacking and defending Active Directory.</p>
             <ul>
               <li>Lab project: BloodHound, Impacket, NetExec, Responder, AS-REP Roasting, Kerberoasting,
@@ -168,71 +185,87 @@
     <!-- ===== CERTIFICATIONS ===== -->
     <section id="certifications" aria-labelledby="title-certifications">
       <div class="wrap">
-        <h2 id="title-certifications">Certifications</h2>
-        <ul class="card plain-list">
-          <li>Fortinet Certified Associate in Cybersecurity <span class="meta">(11/2024 – 11/2026)</span></li>
-          <li>FortiGate Operator v7.4</li>
-          <li>Fortinet NSE 2 – Introduction to Cybersecurity</li>
-          <li>Cisco Networking Academy – CyberOps Associate</li>
-          <li>NDG Linux Unhatched</li>
-        </ul>
+        <h2 id="title-certifications"><span class="h-id" aria-hidden="true">03</span>Certifications</h2>
+        <div class="card flush">
+          <table class="table">
+            <thead><tr><th scope="col">Certification</th><th scope="col">Issuer</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><td>Fortinet Certified Associate in Cybersecurity</td><td>Fortinet</td><td><span class="badge badge-ok">Valid → 11/2026</span></td></tr>
+              <tr><td>FortiGate Operator v7.4</td><td>Fortinet</td><td><span class="badge badge-ok">Earned</span></td></tr>
+              <tr><td>NSE 2 – Introduction to Cybersecurity</td><td>Fortinet</td><td><span class="badge badge-ok">Earned</span></td></tr>
+              <tr><td>CyberOps Associate</td><td>Cisco Networking Academy</td><td><span class="badge badge-ok">Earned</span></td></tr>
+              <tr><td>Linux Unhatched</td><td>NDG</td><td><span class="badge badge-ok">Earned</span></td></tr>
+              <tr><td>CRTP, OSCP or PNPT</td><td>—</td><td><span class="badge badge-goal">Goal</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
     <!-- ===== BACKGROUND ===== -->
     <section id="background" aria-labelledby="title-background">
       <div class="wrap">
-        <h2 id="title-background">Background</h2>
+        <h2 id="title-background"><span class="h-id" aria-hidden="true">04</span>Background</h2>
         <div class="grid two">
-          <div>
-            <h3 class="sub">Experience</h3>
-            <ol class="timeline">
+          <div class="card">
+            <div class="card-head"><h3>Experience</h3><span class="sub">log</span></div>
+            <ol class="log">
               <li>
-                <p class="when">10/2024 – 2027</p>
-                <h4>Systems, Network &amp; Cybersecurity Administrator (work-study)</h4>
-                <p>Groupe Lagrange</p>
-                <ul>
-                  <li>Kept systems and applications running, user support, incident resolution.</li>
-                  <li>Administered Windows/Linux, Active Directory, Office 365, virtualized/cloud environments.</li>
-                  <li>Deployed workstations and servers; managed accounts, permissions and remote access.</li>
-                  <li>Internal network, VPN, Wi-Fi; contributed to network security (firewall, filtering, segmentation).</li>
-                  <li>Deployed and operated Wazuh for security monitoring.</li>
-                  <li>NinjaOne, backup/restore with Veritas System Recovery, PowerShell scripting.</li>
-                </ul>
+                <time>10/2024 → 2027</time>
+                <div>
+                  <h4>Systems, Network &amp; Cybersecurity Administrator (work-study)</h4>
+                  <p>Groupe Lagrange</p>
+                  <ul>
+                    <li>Kept systems and applications running, user support, incident resolution.</li>
+                    <li>Administered Windows/Linux, Active Directory, Office 365, virtualized/cloud environments.</li>
+                    <li>Deployed workstations and servers; managed accounts, permissions and remote access.</li>
+                    <li>Internal network, VPN, Wi-Fi; contributed to network security (firewall, filtering, segmentation).</li>
+                    <li>Deployed and operated Wazuh for security monitoring.</li>
+                    <li>NinjaOne, backup/restore with Veritas System Recovery, PowerShell scripting.</li>
+                  </ul>
+                </div>
               </li>
               <li>
-                <p class="when">01/2024 – 02/2024</p>
-                <h4>IT Support Technician (internship)</h4>
-                <p>Koesio</p>
-                <ul>
-                  <li>User support, ticketing and remote assistance.</li>
-                  <li>Sophos/Fortinet firewalls, security rules, Veeam backups.</li>
-                  <li>Active Directory / FSMO, Office 365, Wi-Fi, PowerShell scripts.</li>
-                </ul>
+                <time>01/2024 → 02/2024</time>
+                <div>
+                  <h4>IT Support Technician (internship)</h4>
+                  <p>Koesio</p>
+                  <ul>
+                    <li>User support, ticketing and remote assistance.</li>
+                    <li>Sophos/Fortinet firewalls, security rules, Veeam backups.</li>
+                    <li>Active Directory / FSMO, Office 365, Wi-Fi, PowerShell scripts.</li>
+                  </ul>
+                </div>
               </li>
             </ol>
           </div>
-          <div>
-            <h3 class="sub">Education</h3>
-            <ol class="timeline">
+          <div class="card">
+            <div class="card-head"><h3>Education</h3><span class="sub">log</span></div>
+            <ol class="log">
               <li>
-                <p class="when">2026 – 2027</p>
-                <h4>Master's, Year 2 – Systems, Network &amp; Cybersecurity Engineering (ISRC)</h4>
-                <p>ICOF, Lyon · French RNCP 38117, level 7</p>
+                <time>2026 → 2027</time>
+                <div>
+                  <h4>Master's, Year 2 – Systems, Network &amp; Cybersecurity Engineering (ISRC)</h4>
+                  <p>ICOF, Lyon · French RNCP 38117, level 7</p>
+                </div>
               </li>
               <li>
-                <p class="when">2025 – 2026</p>
-                <h4>Master's, Year 1 – Systems, Network &amp; Cybersecurity Engineering (ISRC)</h4>
-                <p>ICOF, Lyon</p>
+                <time>2025 → 2026</time>
+                <div>
+                  <h4>Master's, Year 1 – Systems, Network &amp; Cybersecurity Engineering (ISRC)</h4>
+                  <p>ICOF, Lyon</p>
+                </div>
               </li>
               <li>
-                <p class="when">2024 – 2025</p>
-                <h4>Bachelor – Software &amp; Network Project Manager, cybersecurity major</h4>
-                <p>ICOF, Lyon · French RNCP 34568, level 6</p>
+                <time>2024 → 2025</time>
+                <div>
+                  <h4>Bachelor – Software &amp; Network Project Manager, cybersecurity major</h4>
+                  <p>ICOF, Lyon · French RNCP 34568, level 6</p>
+                </div>
               </li>
               <li>
-                <p class="when">2022 – 2024</p>
-                <h4>BTS SIO, SISR option (2-year IT degree, infrastructure &amp; networks)</h4>
+                <time>2022 → 2024</time>
+                <div><h4>BTS SIO, SISR option (2-year IT degree, infrastructure &amp; networks)</h4></div>
               </li>
             </ol>
           </div>
@@ -243,19 +276,21 @@
     <!-- ===== CONTACT ===== -->
     <section id="contact" aria-labelledby="title-contact">
       <div class="wrap">
-        <h2 id="title-contact">Contact</h2>
-        <ul class="links">
-          <li><a href="https://github.com/NBA-JURGARL" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/justin-huchet-608b47251/" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>Résumé (PDF)</a></li>
-        </ul>
+        <h2 id="title-contact"><span class="h-id" aria-hidden="true">05</span>Contact</h2>
+        <div class="card">
+          <ul class="links">
+            <li><a href="https://github.com/NBA-JURGARL" rel="noopener noreferrer">→ GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/justin-huchet-608b47251/" rel="noopener noreferrer">→ LinkedIn</a></li>
+            <li><a href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>↓ Résumé (PDF)</a></li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>Static website, no trackers, no external resources.</p>
+      <p>Static website · no trackers · no external resources</p>
     </div>
   </footer>
 </body>
