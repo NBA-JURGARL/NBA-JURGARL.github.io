@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0b0f14">
   <title>Justin Huchet – Systems, Networks &amp; Cybersecurity</title>
   <meta name="description" content="Portfolio of Justin Huchet, work-study systems and network administrator focused on cybersecurity: SIEM, homelab, network labs, Active Directory pentesting.">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/main.js"></script>
   <link rel="alternate" hreflang="fr" href="https://nba-jurgarl.github.io/">
   <link rel="alternate" hreflang="en" href="https://nba-jurgarl.github.io/en/">
 </head>
@@ -17,7 +20,7 @@
 
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#home">SOC://justin-huchet</a>
+      <a class="brand" href="#home" translate="no">SOC://<span>justin-huchet</span></a>
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="#skills">Skills</a></li>
@@ -41,26 +44,38 @@
 
   <main id="content">
     <!-- ===== HOME / ABOUT ===== -->
-    <section id="home" aria-labelledby="title-home">
-      <div class="wrap dash">
-        <div class="card">
-          <div class="card-head"><span class="sub">Analyst profile</span><span class="badge badge-ok">Active</span></div>
-          <p class="prompt">$ whoami</p>
-          <h1 id="title-home">Justin Huchet</h1>
-          <p class="lead">Work-study systems &amp; network administrator <span aria-hidden="true">→</span> cybersecurity</p>
-          <p>
-            Currently in a Master's-level programme (French RNCP level 7, “Systems, Network &amp; Cybersecurity Engineer”,
-            ending in 2027), I am aiming for a cybersecurity role. I am especially interested in Active Directory
-            pentesting, hardening and detection (SOC/SIEM).
-          </p>
-          <p><a class="btn" href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>↓ Download my résumé (PDF)</a></p>
+    <section id="home" class="hero" aria-labelledby="title-home">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 id="title-home" class="display lines">
+              <span class="line"><span data-line>Justin</span></span>
+              <span class="line"><span data-line>Huchet</span></span>
+            </h1>
+            <p class="lead" data-load="1">Work-study systems &amp; network administrator, <strong>heading into cybersecurity</strong>.</p>
+            <p data-load="2">
+              Currently in a Master's-level programme (French RNCP level 7, “Systems, Network &amp; Cybersecurity Engineer”, ending in 2027).
+              I am especially interested in Active Directory pentesting, hardening and detection (SOC/SIEM).
+            </p>
+            <div class="actions" data-load="3">
+              <a class="btn btn-primary" href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>Download my résumé <span aria-hidden="true">↓</span></a>
+              <a class="btn btn-ghost" href="#projects">See the projects</a>
+            </div>
+          </div>
+          <figure class="feed" data-load="4">
+            <div class="feed-frame">
+              <img src="../assets/photo.jpg" alt="Photo of Justin Huchet" width="480" height="480" fetchpriority="high">
+            </div>
+            <figcaption><span class="live">● Online</span><span>Lyon, France</span></figcaption>
+          </figure>
         </div>
+
         <!-- Key figures: real numbers only -->
-        <div class="kpis" aria-label="Key figures">
-          <div class="kpi"><p class="kpi-label">Endpoints monitored (Wazuh)</p><p class="kpi-val">~200</p></div>
-          <div class="kpi"><p class="kpi-label">Sites covered</p><p class="kpi-val">4</p></div>
-          <div class="kpi"><p class="kpi-label">Certifications earned</p><p class="kpi-val ok">5</p></div>
-          <div class="kpi"><p class="kpi-label">Master's (RNCP 7) ends</p><p class="kpi-val warn">2027</p></div>
+        <div class="kpis">
+          <p class="kpi" data-reveal><span class="kpi-val" data-roll>~200</span><span class="kpi-label">endpoints monitored with Wazuh</span></p>
+          <p class="kpi" data-reveal="1"><span class="kpi-val" data-roll>4</span><span class="kpi-label">sites covered</span></p>
+          <p class="kpi" data-reveal="2"><span class="kpi-val ok" data-roll>5</span><span class="kpi-label">certifications earned</span></p>
+          <p class="kpi" data-reveal="3"><span class="kpi-val warn" data-roll>2027</span><span class="kpi-label">Master's (RNCP 7) ends</span></p>
         </div>
       </div>
     </section>
@@ -68,76 +83,90 @@
     <!-- ===== SKILLS ===== -->
     <section id="skills" aria-labelledby="title-skills">
       <div class="wrap">
-        <h2 id="title-skills"><span class="h-id" aria-hidden="true">01</span>Skills</h2>
-        <div class="grid">
-          <div class="card">
-            <div class="card-head"><h3>Systems &amp; virtualization</h3></div>
+        <div class="section-head" data-reveal>
+          <h2 id="title-skills">Skills</h2>
+          <p>What I use at work and in my labs, from hypervisors to firewalls.</p>
+        </div>
+        <ul class="matrix">
+          <li data-reveal>
+            <h3>Systems &amp; virtualization</h3>
             <ul class="tags">
               <li>Windows</li><li>Debian</li><li>Ubuntu</li><li>Active Directory</li><li>Office 365</li>
               <li>vSphere / vSAN</li><li>Proxmox VE</li><li>LXC containers</li><li>Docker</li>
               <li>VMware</li><li>VirtualBox</li><li>ZFS</li>
             </ul>
-          </div>
-          <div class="card">
-            <div class="card-head"><h3>Networking</h3></div>
+          </li>
+          <li data-reveal="1">
+            <h3>Networking</h3>
             <ul class="tags">
               <li>LAN / WAN</li><li>VLANs &amp; ACLs</li><li>OSPF (FRR)</li><li>Cisco</li><li>Wi-Fi</li>
               <li>LAN/WAN/DMZ segmentation</li><li>Network namespaces</li><li>NAT / DNAT</li>
               <li>WireGuard VPN</li><li>IPsec VPN</li>
             </ul>
-          </div>
-          <div class="card defense">
-            <div class="card-head"><h3>Security &amp; detection</h3></div>
+          </li>
+          <li class="defense" data-reveal="2">
+            <h3>Security &amp; detection</h3>
             <ul class="tags">
               <li>Wazuh SIEM</li><li>iptables firewall (default-drop, stateful)</li>
               <li>Fortinet</li><li>Sophos</li><li>Isolated pentest lab</li><li>Pi-hole</li>
               <li>Introduction to ISO 27001</li>
             </ul>
-          </div>
-          <div class="card">
-            <div class="card-head"><h3>Tooling &amp; backup</h3></div>
+          </li>
+          <li data-reveal="3">
+            <h3>Tooling &amp; backup</h3>
             <ul class="tags">
               <li>NinjaOne RMM</li><li>Veeam</li><li>Veritas System Recovery</li>
               <li>Proxmox Backup Server</li><li>Kali Linux</li>
             </ul>
-          </div>
-          <div class="card">
-            <div class="card-head"><h3>Scripting</h3></div>
+          </li>
+          <li data-reveal>
+            <h3>Scripting</h3>
             <ul class="tags"><li>PowerShell</li><li>Python</li><li>C</li></ul>
-          </div>
-          <div class="card">
-            <div class="card-head"><h3>Languages</h3></div>
+          </li>
+          <li data-reveal="1">
+            <h3>Languages</h3>
             <ul class="plain">
               <li>French: native</li>
               <li>Polish: native</li>
               <li>English: professional / technical</li>
             </ul>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
 
     <!-- ===== PROJECTS: one <article class="card"> per project ===== -->
     <section id="projects" aria-labelledby="title-projects">
       <div class="wrap">
-        <h2 id="title-projects"><span class="h-id" aria-hidden="true">02</span>Projects</h2>
-        <div class="grid">
-          <article class="card defense">
-            <div class="card-head"><h3>Enterprise Wazuh SIEM deployment</h3><span class="badge badge-ok">Prod</span></div>
-            <p>
-              Deployed a Wazuh SIEM covering about 200 endpoints across 4 sites,
-              to surface vulnerabilities and triage alerts.
-            </p>
-            <ul>
-              <li>Remote agents connected to the server over the WAN.</li>
-              <li>Agents rolled out through the NinjaOne RMM.</li>
-              <li>Server hosted as a virtual machine on vSphere/vSAN.</li>
-              <li>Additional work on running Wazuh under Docker.</li>
-            </ul>
-            <ul class="tags"><li>Wazuh</li><li>NinjaOne</li><li>vSphere/vSAN</li><li>Docker</li></ul>
+        <div class="section-head" data-reveal>
+          <h2 id="title-projects">Projects</h2>
+          <p>One production deployment, labs built to learn, and an ongoing goal: Active Directory pentesting.</p>
+        </div>
+        <div class="projects">
+          <article class="card defense featured" data-reveal>
+            <div>
+              <div class="card-head"><h3>Enterprise Wazuh SIEM deployment</h3><span class="badge badge-ok">Prod</span></div>
+              <p>
+                Deployed a Wazuh SIEM covering about 200 endpoints across 4 sites,
+                to surface vulnerabilities and triage alerts.
+              </p>
+              <ul>
+                <li>Remote agents connected to the server over the WAN.</li>
+                <li>Agents rolled out through the NinjaOne RMM.</li>
+                <li>Server hosted as a virtual machine on vSphere/vSAN.</li>
+                <li>Additional work on running Wazuh under Docker.</li>
+              </ul>
+              <ul class="tags"><li>Wazuh</li><li>NinjaOne</li><li>vSphere/vSAN</li><li>Docker</li></ul>
+            </div>
+            <dl class="facts">
+              <div><dt>Scope</dt><dd>~200 endpoints, 4 sites</dd></div>
+              <div><dt>Agent rollout</dt><dd>NinjaOne RMM, over the WAN</dd></div>
+              <div><dt>Hosting</dt><dd>VM on vSphere/vSAN</dd></div>
+              <div><dt>Goal</dt><dd>Surface vulnerabilities, triage alerts</dd></div>
+            </dl>
           </article>
 
-          <article class="card">
+          <article class="card" data-reveal>
             <div class="card-head"><h3>Proxmox homelab</h3><span class="badge badge-info">Lab</span></div>
             <p>Personal infrastructure to host services and practise offensive security.</p>
             <ul>
@@ -149,7 +178,19 @@
             <ul class="tags"><li>Proxmox</li><li>ZFS</li><li>LXC</li><li>WireGuard</li><li>PBS</li></ul>
           </article>
 
-          <article class="card defense">
+          <article class="card offense" data-reveal="1">
+            <div class="card-head"><h3>Active Directory pentesting</h3><span class="badge badge-now">In progress</span></div>
+            <p>Building skills in attacking and defending Active Directory.</p>
+            <ul>
+              <li>Lab project: BloodHound, Impacket, NetExec, Responder, AS-REP Roasting, Kerberoasting,
+                attack path analysis and auditor accounts for POCs.</li>
+              <li><span class="badge badge-now">In progress</span> Training on GOAD and HackTheBox.</li>
+              <li><span class="badge badge-goal">Goal</span> CRTP, OSCP or PNPT certification (not yet obtained).</li>
+            </ul>
+            <ul class="tags"><li>BloodHound</li><li>Impacket</li><li>NetExec</li><li>Responder</li></ul>
+          </article>
+
+          <article class="card defense" data-reveal>
             <div class="card-head"><h3>Network &amp; security labs on Debian</h3><span class="badge badge-info">Lab</span></div>
             <ul>
               <li>VLANs and ACLs.</li>
@@ -161,22 +202,10 @@
             <ul class="tags"><li>Debian</li><li>FRR</li><li>iptables</li><li>netns</li></ul>
           </article>
 
-          <article class="card">
+          <article class="card" data-reveal="1">
             <div class="card-head"><h3>Virtualized environments</h3><span class="badge badge-info">Prod + lab</span></div>
             <p>Administration and use of several hypervisors, at work and in the lab.</p>
             <ul class="tags"><li>vSphere/vSAN</li><li>Proxmox</li><li>VirtualBox</li><li>VMware</li></ul>
-          </article>
-
-          <article class="card offense">
-            <div class="card-head"><h3>Active Directory pentesting</h3><span class="badge badge-now">In progress</span></div>
-            <p>Building skills in attacking and defending Active Directory.</p>
-            <ul>
-              <li>Lab project: BloodHound, Impacket, NetExec, Responder, AS-REP Roasting, Kerberoasting,
-                attack path analysis and auditor accounts for POCs.</li>
-              <li><span class="badge badge-now">In progress</span> Training on GOAD and HackTheBox.</li>
-              <li><span class="badge badge-goal">Goal</span> CRTP, OSCP or PNPT certification (not yet obtained).</li>
-            </ul>
-            <ul class="tags"><li>BloodHound</li><li>Impacket</li><li>NetExec</li><li>Responder</li></ul>
           </article>
         </div>
       </div>
@@ -185,8 +214,11 @@
     <!-- ===== CERTIFICATIONS ===== -->
     <section id="certifications" aria-labelledby="title-certifications">
       <div class="wrap">
-        <h2 id="title-certifications"><span class="h-id" aria-hidden="true">03</span>Certifications</h2>
-        <div class="card flush">
+        <div class="section-head" data-reveal>
+          <h2 id="title-certifications">Certifications</h2>
+          <p>Earned during my studies and work-study, plus the next one I am aiming for.</p>
+        </div>
+        <div class="table-wrap" data-reveal>
           <table class="table">
             <thead><tr><th scope="col">Certification</th><th scope="col">Issuer</th><th scope="col">Status</th></tr></thead>
             <tbody>
@@ -205,10 +237,13 @@
     <!-- ===== BACKGROUND ===== -->
     <section id="background" aria-labelledby="title-background">
       <div class="wrap">
-        <h2 id="title-background"><span class="h-id" aria-hidden="true">04</span>Background</h2>
-        <div class="grid two">
-          <div class="card">
-            <div class="card-head"><h3>Experience</h3><span class="sub">log</span></div>
+        <div class="section-head" data-reveal>
+          <h2 id="title-background">Background</h2>
+          <p>Work-study at Groupe Lagrange since 10/2024, alongside the ISRC Master's programme at ICOF.</p>
+        </div>
+        <div class="logs">
+          <div class="card" data-reveal>
+            <div class="card-head"><h3>Experience</h3></div>
             <ol class="log">
               <li>
                 <time>10/2024 → 2027</time>
@@ -239,8 +274,8 @@
               </li>
             </ol>
           </div>
-          <div class="card">
-            <div class="card-head"><h3>Education</h3><span class="sub">log</span></div>
+          <div class="card" data-reveal="1">
+            <div class="card-head"><h3>Education</h3></div>
             <ol class="log">
               <li>
                 <time>2026 → 2027</time>
@@ -274,23 +309,25 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section id="contact" aria-labelledby="title-contact">
+    <section id="contact" class="contact" aria-labelledby="title-contact">
       <div class="wrap">
-        <h2 id="title-contact"><span class="h-id" aria-hidden="true">05</span>Contact</h2>
-        <div class="card">
-          <ul class="links">
-            <li><a href="https://github.com/NBA-JURGARL" rel="noopener noreferrer">→ GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/justin-huchet-608b47251/" rel="noopener noreferrer">→ LinkedIn</a></li>
-            <li><a href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>↓ Résumé (PDF)</a></li>
-          </ul>
+        <div class="section-head" data-reveal>
+          <h2 id="title-contact">Contact</h2>
+          <p>The easiest way to reach me is LinkedIn. My résumé is available as a PDF.</p>
         </div>
+        <ul class="links">
+          <li data-reveal><a href="https://www.linkedin.com/in/justin-huchet-608b47251/" rel="noopener noreferrer">LinkedIn <span>justin-huchet <span class="arrow" aria-hidden="true">→</span></span></a></li>
+          <li data-reveal="1"><a href="https://github.com/NBA-JURGARL" rel="noopener noreferrer">GitHub <span>NBA-JURGARL <span class="arrow" aria-hidden="true">→</span></span></a></li>
+          <li data-reveal="2"><a href="../assets/cv/CV_Justin_Huchet_EN.pdf" type="application/pdf" download>Résumé <span>PDF, 1 page <span class="arrow" aria-hidden="true">↓</span></span></a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>Static website · no trackers · no external resources</p>
+      <p>Justin Huchet · Lyon</p>
+      <p>Static website · self-hosted fonts · no trackers</p>
     </div>
   </footer>
 </body>

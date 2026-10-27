@@ -10,7 +10,10 @@ Il est publié par GitHub Pages depuis la branche `main`, à l'adresse https://n
 | `index.html` | Contenu français. Chaque section est repérée par un commentaire `<!-- ===== NOM ===== -->`. |
 | `en/index.html` | Contenu anglais, même structure. |
 | `assets/cv/` | Les CV en PDF (FR et EN). |
-| `assets/style.css` | Le style. Les couleurs sont dans le bloc `:root`, en haut du fichier. |
+| `assets/style.css` | Le style. Les couleurs, polices et vitesses d'animation sont dans le bloc `:root`, en haut du fichier. |
+| `assets/main.js` | Les animations d'entrée (facultatives). |
+| `assets/fonts/` | Les polices hébergées sur le site et leurs licences. |
+| `assets/photo.jpg` | Ta photo (480×480, sans métadonnées). |
 | `assets/favicon.svg` | L'icône de l'onglet. |
 | `.well-known/security.txt` | Contact sécurité (RFC 9116). **Mets à jour `Expires:` avant le 27/10/2027.** |
 | `.nojekyll` | Empêche Jekyll d'ignorer le dossier `.well-known`. Ne pas supprimer. |
@@ -54,8 +57,10 @@ GitHub Pages republie le site en une ou deux minutes.
 
 ## Sécurité
 
-- Une Content-Security-Policy stricte est déclarée en balise `<meta>` : uniquement des ressources locales, aucun script.
-- Si tu ajoutes un jour du JS ou une image externe, il faudra modifier cette CSP.
+- Une Content-Security-Policy stricte est déclarée en balise `<meta>` : uniquement des ressources locales (`'self'`), et aucun script ni style écrit directement dans le HTML (pas d'attribut `style="…"`, pas de `<script>…</script>` en ligne).
+- Le seul script est `assets/main.js` : il gère les apparitions au défilement et les chiffres qui défilent. Sans lui, la page s'affiche complète et immobile.
+- Les polices (Space Grotesk, JetBrains Mono) sont dans `assets/fonts/`, avec leurs licences OFL.
+- Si tu ajoutes un jour une ressource externe, il faudra modifier cette CSP dans les deux pages.
 - Limite : GitHub Pages ne permet pas d'envoyer d'en-têtes HTTP personnalisés, et `frame-ancestors` (protection contre l'intégration en iframe) ne fonctionne pas en balise meta.
 - Ne publie aucun détail interne de l'entreprise : noms de serveurs, adresses IP, domaines internes, captures d'écran.
 
