@@ -10,8 +10,11 @@
   <meta name="description" content="Portfolio of Justin Huchet, work-study systems and network administrator looking for a junior cybersecurity role focused on systems and networks: SIEM, homelab, network labs, Active Directory pentesting.">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../assets/style.css?v=3">
+  <link rel="stylesheet" href="../assets/style.css?v=5">
   <script src="../assets/main.js?v=2"></script>
+  <script src="../assets/vendor/gsap.min.js" defer></script>
+  <script src="../assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="../assets/scene.js" defer></script>
   <link rel="alternate" hreflang="fr" href="https://nba-jurgarl.github.io/">
   <link rel="alternate" hreflang="en" href="https://nba-jurgarl.github.io/en/">
 </head>
@@ -144,6 +147,74 @@
         <div class="section-head" data-reveal>
           <h2 id="title-projects">Projects</h2>
           <p>One production deployment, labs built to learn, and an ongoing goal: Active Directory pentesting.</p>
+        </div>
+        <!-- Scène Wazuh (GSAP + ScrollTrigger, assets/scene.js) : sans script, le schéma complet s'affiche -->
+        <div class="scene">
+          <div class="scene-stage">
+            <div class="scene-copy">
+              <h3>How the Wazuh SIEM was deployed</h3>
+              <p class="scene-count" aria-hidden="true">Step 1 of 5</p>
+              <ol class="scene-steps">
+                <li class="scene-step"><h4>4 sites, ~200 endpoints</h4><p>Endpoints spread across four sites, to be monitored from one place.</p></li>
+                <li class="scene-step"><h4>Rolled out by the RMM</h4><p>The Wazuh agent is installed on every endpoint through NinjaOne.</p></li>
+                <li class="scene-step"><h4>Reporting over the WAN</h4><p>Remote agents send their events to the server across the WAN.</p></li>
+                <li class="scene-step"><h4>Server on vSphere/vSAN</h4><p>The Wazuh server runs as a virtual machine on the vSphere/vSAN infrastructure.</p></li>
+                <li class="scene-step"><h4>Vulnerabilities and alerts</h4><p>Vulnerabilities are surfaced and alerts are triaged.</p></li>
+              </ol>
+            </div>
+            <div class="scene-figure">
+              <svg class="scene-svg" viewBox="0 0 1000 600" role="img" aria-labelledby="scene-t scene-d">
+              <title id="scene-t">Wazuh deployment diagram</title><desc id="scene-d">Four sites and about 200 endpoints; the Wazuh agent is rolled out by the NinjaOne RMM; agents report over the WAN to the Wazuh server, a virtual machine on vSphere/vSAN; the output is surfaced vulnerabilities and triaged alerts.</desc>
+              <line class="link rmm-link draw" x1="400" y1="100" x2="252" y2="54"/>
+              <line class="link rmm-link draw" x1="400" y1="100" x2="252" y2="189"/>
+              <line class="link rmm-link draw" x1="400" y1="100" x2="252" y2="324"/>
+              <line class="link rmm-link draw" x1="400" y1="100" x2="252" y2="459"/>
+              <line class="link wan-link draw" x1="250" y1="90" x2="414" y2="320"/>
+              <line class="link wan-link draw" x1="250" y1="225" x2="414" y2="320"/>
+              <line class="link wan-link draw" x1="250" y1="360" x2="414" y2="320"/>
+              <line class="link wan-link draw" x1="250" y1="495" x2="414" y2="320"/>
+              <line class="link core-link draw" x1="588" y1="320" x2="730" y2="285"/>
+              <line class="link out-link draw" x1="835" y1="340" x2="835" y2="452"/>
+              <g class="site"><rect class="box" x="30" y="40" width="220" height="100" rx="6"/><text class="svg-label" x="48" y="68">Site 1</text>
+              <rect class="endpoint" x="48" y="88" width="26" height="18" rx="2"/><circle class="agent" cx="74" cy="88" r="5"/>
+              <rect class="endpoint" x="86" y="88" width="26" height="18" rx="2"/><circle class="agent" cx="112" cy="88" r="5"/>
+              <rect class="endpoint" x="124" y="88" width="26" height="18" rx="2"/><circle class="agent" cx="150" cy="88" r="5"/>
+              <rect class="endpoint" x="162" y="88" width="26" height="18" rx="2"/><circle class="agent" cx="188" cy="88" r="5"/>
+              <rect class="endpoint" x="200" y="88" width="26" height="18" rx="2"/><circle class="agent" cx="226" cy="88" r="5"/>
+              </g>
+              <g class="site"><rect class="box" x="30" y="175" width="220" height="100" rx="6"/><text class="svg-label" x="48" y="203">Site 2</text>
+              <rect class="endpoint" x="48" y="223" width="26" height="18" rx="2"/><circle class="agent" cx="74" cy="223" r="5"/>
+              <rect class="endpoint" x="86" y="223" width="26" height="18" rx="2"/><circle class="agent" cx="112" cy="223" r="5"/>
+              <rect class="endpoint" x="124" y="223" width="26" height="18" rx="2"/><circle class="agent" cx="150" cy="223" r="5"/>
+              <rect class="endpoint" x="162" y="223" width="26" height="18" rx="2"/><circle class="agent" cx="188" cy="223" r="5"/>
+              <rect class="endpoint" x="200" y="223" width="26" height="18" rx="2"/><circle class="agent" cx="226" cy="223" r="5"/>
+              </g>
+              <g class="site"><rect class="box" x="30" y="310" width="220" height="100" rx="6"/><text class="svg-label" x="48" y="338">Site 3</text>
+              <rect class="endpoint" x="48" y="358" width="26" height="18" rx="2"/><circle class="agent" cx="74" cy="358" r="5"/>
+              <rect class="endpoint" x="86" y="358" width="26" height="18" rx="2"/><circle class="agent" cx="112" cy="358" r="5"/>
+              <rect class="endpoint" x="124" y="358" width="26" height="18" rx="2"/><circle class="agent" cx="150" cy="358" r="5"/>
+              <rect class="endpoint" x="162" y="358" width="26" height="18" rx="2"/><circle class="agent" cx="188" cy="358" r="5"/>
+              <rect class="endpoint" x="200" y="358" width="26" height="18" rx="2"/><circle class="agent" cx="226" cy="358" r="5"/>
+              </g>
+              <g class="site"><rect class="box" x="30" y="445" width="220" height="100" rx="6"/><text class="svg-label" x="48" y="473">Site 4</text>
+              <rect class="endpoint" x="48" y="493" width="26" height="18" rx="2"/><circle class="agent" cx="74" cy="493" r="5"/>
+              <rect class="endpoint" x="86" y="493" width="26" height="18" rx="2"/><circle class="agent" cx="112" cy="493" r="5"/>
+              <rect class="endpoint" x="124" y="493" width="26" height="18" rx="2"/><circle class="agent" cx="150" cy="493" r="5"/>
+              <rect class="endpoint" x="162" y="493" width="26" height="18" rx="2"/><circle class="agent" cx="188" cy="493" r="5"/>
+              <rect class="endpoint" x="200" y="493" width="26" height="18" rx="2"/><circle class="agent" cx="226" cy="493" r="5"/>
+              </g>
+              <text class="svg-sub total" x="140" y="584" text-anchor="middle">~200 endpoints in total</text>
+              <g class="rmm"><rect class="box" x="380" y="24" width="276" height="76" rx="6"/><text class="svg-label" x="400" y="56">NinjaOne RMM</text><text class="svg-sub" x="400" y="82">rolls out the Wazuh agent</text></g>
+              <g class="wan"><ellipse class="box" cx="500" cy="320" rx="88" ry="46"/><text class="svg-label" x="500" y="326" text-anchor="middle">WAN</text></g>
+              <g class="cluster"><rect class="box box-soft" x="700" y="170" width="270" height="250" rx="8"/><text class="svg-sub" x="716" y="198">vSphere / vSAN</text><g class="vm"><rect class="box box-vm" x="730" y="230" width="210" height="110" rx="6"/><text class="svg-label" x="750" y="276">Wazuh server</text><text class="svg-sub" x="750" y="304">virtual machine</text></g></g>
+              <g class="outputs"><rect class="box chip" x="700" y="452" width="270" height="48" rx="6"/><text class="svg-label" x="714" y="482">Vulnerabilities surfaced</text><rect class="box chip" x="700" y="512" width="270" height="48" rx="6"/><text class="svg-label" x="714" y="542">Alerts triaged</text></g>
+              <circle class="packet" cx="250" cy="90" r="6"/>
+              <circle class="packet" cx="250" cy="225" r="6"/>
+              <circle class="packet" cx="250" cy="360" r="6"/>
+              <circle class="packet" cx="250" cy="495" r="6"/>
+              </svg>
+            </div>
+          </div>
         </div>
         <div class="projects">
           <article class="card defense featured" data-reveal>
@@ -333,7 +404,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Justin Huchet · Lyon</p>
-      <p>Static website · self-hosted fonts · no trackers</p>
+      <p><a href="legal-notice.html">Legal notice</a> · static website · no cookies or trackers</p>
     </div>
   </footer>
 </body>

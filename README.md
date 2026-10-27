@@ -12,6 +12,8 @@ Il est publié par GitHub Pages depuis la branche `main`, à l'adresse https://n
 | `assets/cv/` | Les CV en PDF (FR et EN). |
 | `assets/style.css` | Le style. Les couleurs, polices et vitesses d'animation sont dans le bloc `:root`, en haut du fichier. |
 | `assets/main.js` | Les animations d'entrée (facultatives). |
+| `assets/scene.js` | La scène Wazuh animée au défilement (section Projets), avec GSAP. |
+| `assets/vendor/` | GSAP 3.15 et ScrollTrigger, hébergés sur le site (licence GSAP « Standard no-charge », https://gsap.com/standard-license). |
 | `assets/fonts/` | Les polices hébergées sur le site et leurs licences. |
 | `assets/photo.jpg` | Ta photo (480×480, sans métadonnées). |
 | `assets/favicon.svg` | L'icône de l'onglet. |
@@ -58,7 +60,8 @@ GitHub Pages republie le site en une ou deux minutes.
 ## Sécurité
 
 - Une Content-Security-Policy stricte est déclarée en balise `<meta>` : uniquement des ressources locales (`'self'`), et aucun script ni style écrit directement dans le HTML (pas d'attribut `style="…"`, pas de `<script>…</script>` en ligne).
-- Le seul script est `assets/main.js` : il gère les apparitions au défilement et les chiffres qui défilent. Sans lui, la page s'affiche complète et immobile.
+- Les scripts sont tous hébergés sur le site : `assets/main.js` (apparitions, chiffres, indicateur de défilement), `assets/scene.js` et GSAP dans `assets/vendor/` (scène Wazuh). Sans eux, la page s'affiche complète et immobile, avec le schéma Wazuh en entier.
+- Pour modifier le texte de la scène Wazuh : il est dans le bloc `<div class="scene">` de chaque page (étapes dans `<ol class="scene-steps">`, libellés du schéma dans les `<text>` du `<svg>`).
 - Les polices (Space Grotesk, JetBrains Mono) sont dans `assets/fonts/`, avec leurs licences OFL.
 - Si tu ajoutes un jour une ressource externe, il faudra modifier cette CSP dans les deux pages.
 - Limite : GitHub Pages ne permet pas d'envoyer d'en-têtes HTTP personnalisés, et `frame-ancestors` (protection contre l'intégration en iframe) ne fonctionne pas en balise meta.

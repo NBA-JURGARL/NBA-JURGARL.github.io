@@ -304,3 +304,53 @@ section { padding: clamp(4rem, 9vw, 7.5rem) 0 0; scroll-margin-top: 6rem; }
   body::before, body::after, .dot, .feed-frame::after { animation: none; }
   body::after, .feed-frame::after { display: none; }
 }
+
+/* Scène Wazuh (GSAP) : sans script, schéma complet et toutes les étapes lisibles */
+.scene { margin-bottom: var(--gap); }
+.scene-stage {
+  display: grid; gap: 1.5rem clamp(1.5rem, 4vw, 3.5rem); grid-template-columns: minmax(0, 1fr); align-items: center;
+  background: var(--surface); border-radius: 6px; padding: clamp(1.25rem, 3vw, 2.25rem);
+  box-shadow: inset 0 3px 0 var(--accent);
+}
+@media (min-width: 56rem) { .scene-stage { grid-template-columns: 3fr 8fr; } }
+.scene-copy h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -0.02em; }
+.scene-count { font: 600 .85rem var(--mono); color: var(--accent); margin: .5rem 0 1rem; }
+.scene-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.scene-step { padding: .6rem .9rem; border-radius: 4px; transition: opacity 240ms ease, background-color 240ms ease; }
+.scene-step h4 { margin: 0; }
+.scene-step p { margin: .15rem 0 0; color: var(--muted); font-size: .95rem; }
+.scene-figure { min-width: 0; }
+.scene-svg { display: block; width: 100%; height: auto; }
+
+.scene-svg .box { fill: var(--surface-2); stroke: var(--border); stroke-width: 1.5; }
+.scene-svg .box-soft { fill: rgba(108, 182, 255, .05); stroke-dasharray: 6 5; }
+.scene-svg .box-vm { stroke: var(--accent); stroke-width: 2; }
+.scene-svg .chip { stroke: var(--ok); }
+.scene-svg .endpoint { fill: var(--raised); stroke: var(--muted); stroke-width: 1; }
+.scene-svg .agent { fill: var(--ok); }
+.scene-svg .link { stroke: var(--accent); stroke-width: 2; fill: none; }
+.scene-svg .rmm-link { stroke: var(--warn); stroke-dasharray: 5 6; }
+.scene-svg .packet { fill: var(--accent); opacity: 0; }
+.scene-svg .svg-label { font: 600 20px var(--sans); fill: var(--text); }
+.scene-svg .svg-sub { font: 500 15px var(--mono); fill: var(--muted); }
+.scene-svg .total { font-size: 17px; fill: var(--text); }
+
+/* Pendant la scène (classe posée par scene.js) : l'étape en cours est mise en avant */
+.scene.is-live .scene-step { opacity: .45; }
+.scene.is-live .scene-step.is-active { opacity: 1; background: var(--raised); }
+.scene.is-live .scene-stage { min-height: min(100svh - 8rem, 46rem); }
+@media (max-width: 56rem) {
+  .scene-figure { overflow-x: auto; margin: 0 calc(-1 * clamp(1.25rem, 3vw, 2.25rem)); padding: 0 clamp(1.25rem, 3vw, 2.25rem); }
+  .scene-svg { min-width: 640px; }
+}
+.scene:not(.is-live) .scene-count { display: none; }
+
+/* Mentions légales */
+.legal .wrap { max-width: 48rem; padding-top: clamp(2.5rem, 6vw, 4.5rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
+.legal h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); letter-spacing: -0.03em; margin: 0 0 .5rem; }
+.legal section { padding: 2rem 0 0; }
+.legal h2 { font-size: 1.5rem; letter-spacing: -0.01em; margin: 0 0 .75rem; }
+.legal p, .legal li { max-width: 42rem; }
+.legal ul { padding-left: 1.2rem; }
+.legal code { font: .9em var(--mono); }
+.site-footer a { color: var(--text); }
