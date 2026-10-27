@@ -22,11 +22,36 @@ body {
   color: var(--text);
   font: 1rem/1.6 var(--sans);
   background-color: var(--bg);
-  /* quadrillage discret façon console */
-  background-image:
-    linear-gradient(rgba(88, 166, 255, .04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(88, 166, 255, .04) 1px, transparent 1px);
-  background-size: 32px 32px;
+}
+
+/* Fond animé (CSS seul) : quadrillage qui défile, halos qui pulsent, balayage radar */
+body::before, body::after {
+  content: ""; position: fixed; pointer-events: none; z-index: -1;
+}
+body::before {
+  inset: -64px;
+  background:
+    radial-gradient(40rem 30rem at 15% 20%, rgba(88, 166, 255, .08), transparent 70%),
+    radial-gradient(35rem 25rem at 85% 75%, rgba(63, 185, 80, .05), transparent 70%),
+    linear-gradient(rgba(88, 166, 255, .05) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(88, 166, 255, .05) 1px, transparent 1px) 0 0 / 32px 32px;
+  animation: grid-drift 6s linear infinite, glow 9s ease-in-out infinite alternate;
+}
+body::after {
+  left: 0; right: 0; top: 0; height: 9rem;
+  background: linear-gradient(to bottom, transparent, rgba(88, 166, 255, .07) 85%, rgba(88, 166, 255, .25) 100%);
+  animation: sweep 7s linear infinite;
+}
+@keyframes grid-drift { to { transform: translate(32px, 32px); } }
+@keyframes glow { from { opacity: .7; } to { opacity: 1; } }
+@keyframes sweep { from { transform: translateY(-9rem); } to { transform: translateY(100vh); } }
+
+.dot { animation: blink 2s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: .35; } }
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after, .dot { animation: none; }
+  body::after { display: none; }
 }
 
 .wrap { max-width: 72rem; margin: 0 auto; padding: 0 16px; }
