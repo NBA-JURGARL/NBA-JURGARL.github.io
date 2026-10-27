@@ -9,10 +9,8 @@
   <meta name="description" content="Portfolio de Justin Huchet, administrateur systèmes et réseau en alternance, orienté cybersécurité : SIEM, homelab, labs réseau, pentest Active Directory.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
-  <!-- hreflang en : décommenter quand en/index.html existera
   <link rel="alternate" hreflang="fr" href="https://nba-jurgarl.github.io/">
   <link rel="alternate" hreflang="en" href="https://nba-jurgarl.github.io/en/">
-  -->
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -24,9 +22,10 @@
         <ul>
           <li><a href="#competences">Compétences</a></li>
           <li><a href="#projets">Projets</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#parcours">Parcours</a></li>
           <li><a href="#contact">Contact</a></li>
-          <!-- <li><a href="en/" hreflang="en" lang="en">EN</a></li> -->
+          <li><a class="lang" href="en/" hreflang="en" lang="en" aria-label="English version">EN</a></li>
         </ul>
       </nav>
     </div>
@@ -45,6 +44,7 @@
           au hardening et à la détection (SOC/SIEM).
         </p>
         <p class="meta">Basé à Lyon · ouvert à la France et au Canada</p>
+        <p><a class="btn" href="assets/cv/CV_Justin_Huchet_FR.pdf" type="application/pdf" download>Télécharger mon CV (PDF)</a></p>
       </div>
     </section>
 
@@ -56,28 +56,44 @@
           <div class="card">
             <h3>Systèmes &amp; virtualisation</h3>
             <ul class="tags">
-              <li>vSphere / vSAN</li><li>Proxmox VE</li><li>Conteneurs LXC</li><li>VMware</li>
-              <li>VirtualBox</li><li>Debian</li><li>ZFS</li><li>Proxmox Backup Server</li>
+              <li>Windows</li><li>Debian</li><li>Ubuntu</li><li>Active Directory</li><li>Office 365</li>
+              <li>vSphere / vSAN</li><li>Proxmox VE</li><li>Conteneurs LXC</li><li>Docker</li>
+              <li>VMware</li><li>VirtualBox</li><li>ZFS</li>
             </ul>
           </div>
           <div class="card">
             <h3>Réseau</h3>
             <ul class="tags">
-              <li>VLAN &amp; ACL</li><li>OSPF (FRR)</li><li>Segmentation LAN/WAN/DMZ</li>
-              <li>Network namespaces</li><li>NAT / DNAT</li><li>VPN WireGuard</li>
+              <li>LAN / WAN</li><li>VLAN &amp; ACL</li><li>OSPF (FRR)</li><li>Cisco</li><li>Wi-Fi</li>
+              <li>Segmentation LAN/WAN/DMZ</li><li>Network namespaces</li><li>NAT / DNAT</li>
+              <li>VPN WireGuard</li><li>VPN IPsec</li>
             </ul>
           </div>
           <div class="card">
             <h3>Sécurité &amp; détection</h3>
             <ul class="tags">
               <li>SIEM Wazuh</li><li>Pare-feu iptables (default-drop, stateful)</li>
-              <li>Lab de pentest isolé</li><li>Pi-hole</li>
+              <li>Fortinet</li><li>Sophos</li><li>Lab de pentest isolé</li><li>Pi-hole</li>
+              <li>Introduction à l'ISO 27001</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Outillage</h3>
+            <h3>Outillage &amp; sauvegarde</h3>
             <ul class="tags">
-              <li>RMM NinjaOne</li><li>Kali Linux</li>
+              <li>RMM NinjaOne</li><li>Veeam</li><li>Veritas System Recovery</li>
+              <li>Proxmox Backup Server</li><li>Kali Linux</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Scripting</h3>
+            <ul class="tags"><li>PowerShell</li><li>Python</li><li>C</li></ul>
+          </div>
+          <div class="card">
+            <h3>Langues</h3>
+            <ul class="plain">
+              <li>Français : natif</li>
+              <li>Polonais : natif</li>
+              <li>Anglais : professionnel / technique</li>
             </ul>
           </div>
         </div>
@@ -99,8 +115,9 @@
               <li>Agents distants connectés au serveur via le WAN.</li>
               <li>Déploiement des agents par le RMM NinjaOne.</li>
               <li>Serveur hébergé en machine virtuelle sur vSphere/vSAN.</li>
+              <li>Travaux complémentaires sur le déploiement de Wazuh sous Docker.</li>
             </ul>
-            <ul class="tags"><li>Wazuh</li><li>NinjaOne</li><li>vSphere/vSAN</li></ul>
+            <ul class="tags"><li>Wazuh</li><li>NinjaOne</li><li>vSphere/vSAN</li><li>Docker</li></ul>
           </article>
 
           <article class="card">
@@ -137,11 +154,28 @@
             <h3>Pentest Active Directory <span class="badge badge-now">En cours</span></h3>
             <p>Montée en compétences sur l'attaque et la défense d'Active Directory.</p>
             <ul>
+              <li>Projet en lab : BloodHound, Impacket, NetExec, Responder, AS-REP Roasting, Kerberoasting,
+                analyse de chemins d'attaque et création de comptes auditeurs pour POC.</li>
               <li><span class="badge badge-now">En cours</span> Entraînement sur GOAD et HackTheBox.</li>
               <li><span class="badge badge-goal">Objectif</span> Certification CRTP, OSCP ou PNPT (non obtenue).</li>
             </ul>
+            <ul class="tags"><li>BloodHound</li><li>Impacket</li><li>NetExec</li><li>Responder</li></ul>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications" aria-labelledby="titre-certifications">
+      <div class="wrap">
+        <h2 id="titre-certifications">Certifications</h2>
+        <ul class="card plain-list">
+          <li>Fortinet Certified Associate in Cybersecurity <span class="meta">(11/2024 – 11/2026)</span></li>
+          <li>FortiGate Operator v7.4</li>
+          <li>Fortinet NSE 2 – Introduction to Cybersecurity</li>
+          <li>Cisco Networking Academy – CyberOps Associate</li>
+          <li>NDG Linux Unhatched</li>
+        </ul>
       </div>
     </section>
 
@@ -149,17 +183,60 @@
     <section id="parcours" aria-labelledby="titre-parcours">
       <div class="wrap">
         <h2 id="titre-parcours">Parcours</h2>
-        <ol class="timeline">
-          <li>
-            <p class="when">Fin en 2027</p>
-            <h3>Mastère ISRC « Ingénieur systèmes, réseaux et cybersécurité »</h3>
-            <p>Titre RNCP niveau 7 · ICOF</p>
-          </li>
-          <li>
-            <h3>Administrateur systèmes &amp; réseau (alternance)</h3>
-            <p>Groupe Lagrange</p>
-          </li>
-        </ol>
+        <div class="grid two">
+          <div>
+            <h3 class="sub">Expérience</h3>
+            <ol class="timeline">
+              <li>
+                <p class="when">10/2024 – 10/2026</p>
+                <h4>Administrateur systèmes, réseaux &amp; cybersécurité (alternance)</h4>
+                <p>Groupe Lagrange</p>
+                <ul>
+                  <li>Maintien en conditions opérationnelles, support utilisateurs, résolution d'incidents.</li>
+                  <li>Administration Windows/Linux, Active Directory, Office 365, environnements virtualisés/cloud.</li>
+                  <li>Déploiement de postes et serveurs, gestion des comptes, droits et accès distants.</li>
+                  <li>Réseau interne, VPN, Wi-Fi ; participation à la sécurité réseau (pare-feu, filtrage, segmentation).</li>
+                  <li>Mise en place et exploitation de Wazuh pour la supervision de la sécurité.</li>
+                  <li>NinjaOne, sauvegardes/restaurations avec Veritas System Recovery, scripting PowerShell.</li>
+                </ul>
+              </li>
+              <li>
+                <p class="when">01/2024 – 02/2024</p>
+                <h4>Technicien support IT (stage)</h4>
+                <p>Koesio</p>
+                <ul>
+                  <li>Support utilisateurs, ticketing et assistance à distance.</li>
+                  <li>Pare-feu Sophos/Fortinet, règles de sécurité, sauvegardes Veeam.</li>
+                  <li>Active Directory / FSMO, Office 365, Wi-Fi, scripts PowerShell.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <h3 class="sub">Formation</h3>
+            <ol class="timeline">
+              <li>
+                <p class="when">2026 – 2027</p>
+                <h4>Mastère 2 ISRC – Ingénieur systèmes, réseaux et cybersécurité</h4>
+                <p>ICOF, Lyon · RNCP 38117, niveau 7</p>
+              </li>
+              <li>
+                <p class="when">2025 – 2026</p>
+                <h4>Mastère 1 ISRC – Ingénieur systèmes, réseaux et cybersécurité</h4>
+                <p>ICOF, Lyon</p>
+              </li>
+              <li>
+                <p class="when">2024 – 2025</p>
+                <h4>Bachelor Chef de projet logiciel et réseau, spécialité cybersécurité</h4>
+                <p>ICOF, Lyon · RNCP 34568, niveau 6</p>
+              </li>
+              <li>
+                <p class="when">2022 – 2024</p>
+                <h4>BTS SIO, option SISR</h4>
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -170,6 +247,7 @@
         <ul class="links">
           <li><a href="https://github.com/NBA-JURGARL" rel="noopener noreferrer">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/justin-huchet-608b47251/" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="assets/cv/CV_Justin_Huchet_FR.pdf" type="application/pdf" download>CV (PDF)</a></li>
         </ul>
       </div>
     </section>

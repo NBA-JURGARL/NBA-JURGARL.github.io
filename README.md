@@ -7,7 +7,9 @@ Il est publié par GitHub Pages depuis la branche `main`, à l'adresse https://n
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Tout le contenu. Chaque section est repérée par un commentaire `<!-- ===== NOM ===== -->`. |
+| `index.html` | Contenu français. Chaque section est repérée par un commentaire `<!-- ===== NOM ===== -->`. |
+| `en/index.html` | Contenu anglais, même structure. |
+| `assets/cv/` | Les CV en PDF (FR et EN). |
 | `assets/style.css` | Le style. Les couleurs sont dans le bloc `:root`, en haut du fichier. |
 | `assets/favicon.svg` | L'icône de l'onglet. |
 | `.well-known/security.txt` | Contact sécurité (RFC 9116). **Mets à jour `Expires:` avant le 27/10/2027.** |
@@ -38,11 +40,17 @@ git push
 ```
 GitHub Pages republie le site en une ou deux minutes.
 
-## Ajouter la version anglaise (Canada)
+## Deux langues
 
-1. Copie `index.html` dans `en/index.html`, puis traduis le texte.
-2. Dans la copie, passe `lang="fr"` à `lang="en"`, et remplace les chemins `assets/…` par `../assets/…`.
-3. Dans les deux fichiers, décommente le bloc `hreflang` du `<head>` et le lien `EN`/`FR` de la navigation.
+- `index.html` est la version française, `en/index.html` la version anglaise. Le bouton `EN`/`FR` de l'en-tête passe de l'une à l'autre.
+- **Toute modification de contenu doit être faite dans les deux fichiers.**
+- Dans `en/index.html`, les chemins commencent par `../assets/…`.
+
+## CV
+
+- `assets/cv/CV_Justin_Huchet_FR.pdf` est lié depuis la page française, `assets/cv/CV_Justin_Huchet_EN.pdf` depuis la page anglaise.
+- Pour les mettre à jour : exporte ton CV en PDF depuis Word ou LibreOffice, et remplace le fichier en gardant **exactement le même nom**.
+- Avant de publier, retire le téléphone, l'âge et l'adresse précise : le PDF est téléchargeable par n'importe qui.
 
 ## Sécurité
 
