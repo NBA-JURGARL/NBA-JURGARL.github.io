@@ -1,6 +1,6 @@
 # NBA-JURGARL.github.io
 
-Portfolio statique : HTML et CSS purs, sans JavaScript, sans build et sans ressource externe.
+Portfolio statique : HTML et CSS écrits à la main, un peu de JavaScript local, sans build et sans ressource externe.
 Il est publié par GitHub Pages depuis la branche `main`, à l'adresse https://nba-jurgarl.github.io/
 
 ## Fichiers
@@ -17,6 +17,8 @@ Il est publié par GitHub Pages depuis la branche `main`, à l'adresse https://n
 | `assets/fonts/` | Les polices hébergées sur le site et leurs licences. |
 | `assets/photo.jpg` | Ta photo (480×480, sans métadonnées). |
 | `assets/favicon.svg` | L'icône de l'onglet. |
+| `assets/og-fr.jpg`, `assets/og-en.jpg` | Images d'aperçu (1200×630) affichées quand le lien est partagé (LinkedIn, etc.). Les balises `og:` du `<head>` pointent dessus en URL absolue : à changer si le domaine change. |
+| `_headers` | En-têtes HTTP de sécurité (HSTS, CSP, X-Frame-Options…) pour Cloudflare Pages. Ignoré par GitHub Pages. |
 | `.well-known/security.txt` | Contact sécurité (RFC 9116). **Mets à jour `Expires:` avant le 27/10/2027.** |
 | `.nojekyll` | Empêche Jekyll d'ignorer le dossier `.well-known`. Ne pas supprimer. |
 
