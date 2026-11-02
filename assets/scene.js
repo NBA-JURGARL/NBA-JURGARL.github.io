@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scène AD (OLYMPE.FR) : la chaîne d'attaque monte de boîte en boîte jusqu'à la prise du DC.
   function buildAd(q) {
-    gsap.set([q('.b1'), q('.b2'), q('.b3'), q('.b4'), q('.b5'), q('.dc-crit'), q('.loot')], { opacity: 0 });
+    gsap.set([q('.b1'), q('.b2'), q('.b3'), q('.b4'), q('.b5'), q('.dc-crit'), q('.loot'), q('.total')], { opacity: 0 });
 
     // Chaque saut : on dessine le lien, un paquet file vers la boîte suivante, puis la boîte apparaît.
     const hops = [
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .to(q('.p5'), { attr: { cx: 832, cy: 240 }, duration: 0.8 }, 8.6)
       .to(q('.p5'), { opacity: 0, duration: 0.2 }, 9.3)
       .to(q('.dc-crit'), { opacity: 1, duration: 0.5 }, 9.3)
-      .to(q('.loot'), { opacity: 1, duration: 0.6 }, 9.6)
+      .to([q('.loot'), q('.total')], { opacity: 1, duration: 0.6 }, 9.6)
       .to({}, { duration: 0.6 }, 10); // un temps d'arrêt sur la chaîne complète
     return tl;
   }
