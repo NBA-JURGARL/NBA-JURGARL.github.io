@@ -346,6 +346,7 @@ section { padding: clamp(4rem, 9vw, 7.5rem) 0 0; scroll-margin-top: 6rem; }
 .scene:not(.is-live) .scene-count { display: none; }
 
 /* Scène AD : chaîne d'attaque en rouge « crit », DC pris et butin extrait */
+.scene-copy .scene-intro { margin: .25rem 0 1rem; color: var(--muted); font-size: .97rem; }
 .scene-svg .t-label { font: 600 15px var(--sans); fill: var(--text); }
 .scene-svg .t-sub { font: 500 12px var(--mono); fill: var(--muted); }
 .scene-svg .atk-link { stroke: var(--crit); stroke-width: 2; }

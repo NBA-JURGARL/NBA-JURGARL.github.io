@@ -10,7 +10,7 @@
   <meta name="description" content="Portfolio of Justin Huchet, work-study systems and network administrator looking for a junior cybersecurity role focused on systems and networks: SIEM, homelab, network labs, Active Directory pentesting.">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../assets/style.css?v=6">
+  <link rel="stylesheet" href="../assets/style.css?v=7">
   <script src="../assets/main.js?v=2"></script>
   <script src="../assets/vendor/gsap.min.js" defer></script>
   <script src="../assets/vendor/ScrollTrigger.min.js" defer></script>
@@ -233,7 +233,8 @@
         <div class="scene" data-scene="ad">
           <div class="scene-stage">
             <div class="scene-copy">
-              <h3>How the OLYMPE.FR domain fell</h3>
+              <h3>An AD lab, CTF-style: all the way to the flag</h3>
+              <p class="scene-intro">Lab exercise: once the domain was fully compromised, you had to capture a flag on the domain controller to validate the attack chain.</p>
               <p class="scene-count" aria-hidden="true">Step 1 of 5</p>
               <ol class="scene-steps">
                 <li class="scene-step"><h4>Recon &amp; NTLM capture</h4><p>Responder intercepts authentications and collects NTLM hashes; BloodHound maps the attack paths.</p></li>
@@ -259,6 +260,7 @@
               <g class="dc"><rect class="dc-box" x="832" y="150" width="152" height="180" rx="8"/><text class="t-label" x="908" y="200" text-anchor="middle">DC — Zeus</text><text class="t-sub" x="908" y="224" text-anchor="middle">OLYMPE.FR</text></g>
               <g class="dc-crit"><rect x="832" y="150" width="152" height="180" rx="8"/><text class="t-label" x="908" y="280" text-anchor="middle">Domain admin</text></g>
               <g class="loot"><rect class="box" x="760" y="360" width="224" height="72" rx="6"/><text class="t-label" x="872" y="394" text-anchor="middle">Directory secrets</text><text class="t-sub" x="872" y="416" text-anchor="middle">krbtgt + privileged accounts</text></g>
+              <g class="loot"><rect class="box" x="760" y="446" width="224" height="46" rx="6"/><text class="t-sub" x="872" y="474" text-anchor="middle">flag: UR_THE_BEST_ZEUS</text></g>
               <circle class="packet atk-pkt p1" cx="162" cy="292" r="6"/>
               <circle class="packet atk-pkt p2" cx="326" cy="192" r="6"/>
               <circle class="packet atk-pkt p3" cx="490" cy="292" r="6"/>
