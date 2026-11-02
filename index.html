@@ -229,6 +229,46 @@
             </div>
           </div>
         </div>
+        <!-- Scène AD (GSAP + ScrollTrigger, assets/scene.js) : sans script, la chaîne complète s'affiche -->
+        <div class="scene" data-scene="ad">
+          <div class="scene-stage">
+            <div class="scene-copy">
+              <h3>Comment le domaine OLYMPE.FR est tombé</h3>
+              <p class="scene-count" aria-hidden="true">Étape 1 sur 5</p>
+              <ol class="scene-steps">
+                <li class="scene-step"><h4>Reconnaissance &amp; capture NTLM</h4><p>Responder intercepte des authentifications et récupère des hachages NTLM ; BloodHound cartographie les chemins d'attaque.</p></li>
+                <li class="scene-step"><h4>AS-REP Roasting</h4><p>Des comptes sans pré-authentification Kerberos sont cassés hors ligne avec Hashcat.</p></li>
+                <li class="scene-step"><h4>Kerberoasting (TGS)</h4><p>Les comptes de service à SPN sont craqués, dont service_DSYNC.</p></li>
+                <li class="scene-step"><h4>DCSync</h4><p>service_DSYNC dispose de droits de réplication : le DC livre tous les secrets de l'annuaire.</p></li>
+                <li class="scene-step"><h4>Pass-the-hash sur le DC</h4><p>Le hachage d'un admin du domaine ouvre le DC via Evil-WinRM : domaine compromis.</p></li>
+              </ol>
+            </div>
+            <div class="scene-figure">
+              <svg class="scene-svg" viewBox="0 0 1000 600" role="img" aria-labelledby="ad-t ad-d">
+              <title id="ad-t">Chaîne d'attaque Active Directory sur OLYMPE.FR</title><desc id="ad-d">Depuis un accès à faible privilège : capture NTLM avec Responder, AS-REP Roasting, Kerberoasting du compte service_DSYNC, DCSync pour extraire les secrets de l'annuaire, puis pass-the-hash via Evil-WinRM pour prendre le contrôleur de domaine Zeus. Résultat : compromission complète du domaine.</desc>
+              <line class="link atk-link draw e1" x1="162" y1="292" x2="176" y2="192"/>
+              <line class="link atk-link draw e2" x1="326" y1="192" x2="340" y2="292"/>
+              <line class="link atk-link draw e3" x1="490" y1="292" x2="504" y2="192"/>
+              <line class="link atk-link draw e4" x1="654" y1="192" x2="668" y2="292"/>
+              <line class="link atk-link draw e5" x1="818" y1="292" x2="832" y2="240"/>
+              <g class="b1"><rect class="box" x="12" y="250" width="150" height="84" rx="6"/><text class="t-label" x="87" y="286" text-anchor="middle">Responder</text><text class="t-sub" x="87" y="308" text-anchor="middle">capture NTLM</text></g>
+              <g class="b2"><rect class="box" x="176" y="150" width="150" height="84" rx="6"/><text class="t-label" x="251" y="186" text-anchor="middle">AS-REP Roasting</text><text class="t-sub" x="251" y="208" text-anchor="middle">Hashcat</text></g>
+              <g class="b3"><rect class="box" x="340" y="250" width="150" height="84" rx="6"/><text class="t-label" x="415" y="286" text-anchor="middle">Kerberoasting</text><text class="t-sub" x="415" y="308" text-anchor="middle">TGS · service_DSYNC</text></g>
+              <g class="b4"><rect class="box" x="504" y="150" width="150" height="84" rx="6"/><text class="t-label" x="579" y="186" text-anchor="middle">DCSync</text><text class="t-sub" x="579" y="208" text-anchor="middle">réplication DC</text></g>
+              <g class="b5"><rect class="box" x="668" y="250" width="150" height="84" rx="6"/><text class="t-label" x="743" y="286" text-anchor="middle">Pass-the-hash</text><text class="t-sub" x="743" y="308" text-anchor="middle">Evil-WinRM</text></g>
+              <g class="dc"><rect class="dc-box" x="832" y="150" width="152" height="180" rx="8"/><text class="t-label" x="908" y="200" text-anchor="middle">DC — Zeus</text><text class="t-sub" x="908" y="224" text-anchor="middle">OLYMPE.FR</text></g>
+              <g class="dc-crit"><rect x="832" y="150" width="152" height="180" rx="8"/><text class="t-label" x="908" y="280" text-anchor="middle">Admin du domaine</text></g>
+              <g class="loot"><rect class="box" x="760" y="360" width="224" height="72" rx="6"/><text class="t-label" x="872" y="394" text-anchor="middle">Secrets de l'annuaire</text><text class="t-sub" x="872" y="416" text-anchor="middle">krbtgt + comptes privilégiés</text></g>
+              <circle class="packet atk-pkt p1" cx="162" cy="292" r="6"/>
+              <circle class="packet atk-pkt p2" cx="326" cy="192" r="6"/>
+              <circle class="packet atk-pkt p3" cx="490" cy="292" r="6"/>
+              <circle class="packet atk-pkt p4" cx="654" cy="192" r="6"/>
+              <circle class="packet atk-pkt p5" cx="818" cy="292" r="6"/>
+              <text class="svg-sub total" x="500" y="584" text-anchor="middle">Domaine OLYMPE.FR — compromission complète</text>
+              </svg>
+            </div>
+          </div>
+        </div>
         <div class="projects">
           <article class="card defense featured" data-reveal>
             <div>

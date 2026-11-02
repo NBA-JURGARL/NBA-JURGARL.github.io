@@ -345,6 +345,17 @@ section { padding: clamp(4rem, 9vw, 7.5rem) 0 0; scroll-margin-top: 6rem; }
 }
 .scene:not(.is-live) .scene-count { display: none; }
 
+/* Scène AD : chaîne d'attaque en rouge « crit », DC pris et butin extrait */
+.scene-svg .t-label { font: 600 15px var(--sans); fill: var(--text); }
+.scene-svg .t-sub { font: 500 12px var(--mono); fill: var(--muted); }
+.scene-svg .atk-link { stroke: var(--crit); stroke-width: 2; }
+.scene-svg .atk-pkt { fill: var(--crit); }
+.scene-svg .dc-box { fill: var(--surface-2); stroke: var(--accent); stroke-width: 2; }
+.scene-svg .dc-crit { fill: rgba(255, 123, 114, .14); stroke: var(--crit); stroke-width: 2.5; }
+.scene-svg .dc-crit text { fill: var(--crit); }
+.scene-svg .loot .box { fill: rgba(255, 123, 114, .08); stroke: var(--crit); stroke-dasharray: 5 4; }
+.scene-svg .loot text { fill: var(--crit); }
+
 /* Mentions légales */
 .legal .wrap { max-width: 48rem; padding-top: clamp(2.5rem, 6vw, 4.5rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
 .legal h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); letter-spacing: -0.03em; margin: 0 0 .5rem; }
